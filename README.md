@@ -1,7 +1,6 @@
 # Consul Mesh between AWS and Azure
 
-## Architecture
+### 2021年3月9日に行われたHashiCorp Snapshotのデモです。 
 
-![consul meshgateway](./asset/architecture.jpg)
 
 
