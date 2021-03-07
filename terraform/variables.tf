@@ -5,8 +5,15 @@ variable "tfc_org" {
 }
 
 variable "env" {
-  type    = string
-  default = "demo"
+  type = string
+}
+
+variable "vault_addr" {
+  type = string
+}
+
+variable "vault_namespace" {
+  type = string
 }
 
 ###  For AWS ###

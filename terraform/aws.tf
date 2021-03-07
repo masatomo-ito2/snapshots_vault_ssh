@@ -3,7 +3,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
   }
 
   filter {
@@ -25,6 +25,13 @@ resource "aws_security_group" "ssh" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 resource "aws_instance" "vm" {
@@ -42,9 +49,8 @@ resource "aws_instance" "vm" {
 
 data "template_file" "init" {
   template = file("${path.module}/scripts/setup.sh")
-
   vars = {
-    tpl_env    = var.env
-    tpl_region = var.region
+    tpl_vault_addr      = var.vault_addr
+    tpl_vault_namespace = var.vault_namespace
   }
 }
