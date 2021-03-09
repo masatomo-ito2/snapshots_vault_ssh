@@ -16,6 +16,6 @@ vault write ssh-client-signer/roles/ops-role -<<EOF
   ],
   "key_type": "ca",
   "default_user": "ops",
-  "ttl": "2m0s"
+  "ttl": "1m0s"
 }
 EOF 
