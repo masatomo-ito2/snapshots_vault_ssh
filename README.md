@@ -30,6 +30,8 @@ cd terraform
 terraform apply
 ```
 
+* AWSのVPCはみなさんの環境のものを指定してください。
+* AzureのResouce groupはみなさんの環境のものを指定してください。
 * AWSとAzureのクレデンシャルを設定してくださいね。
   * Azureのクレデンシャル設定方法
     * https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#authenticating-to-azure
