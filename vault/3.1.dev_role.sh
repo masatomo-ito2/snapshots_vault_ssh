@@ -15,6 +15,6 @@ vault write ssh-client-signer/roles/dev-role -<<EOF
   ],
   "key_type": "ca",
   "default_user": "dev",
-  "ttl": "1m0s"
+  "ttl": "1m30s"
 }
-EOF 
+EOF

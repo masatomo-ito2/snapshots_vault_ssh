@@ -1,6 +1,5 @@
 #! /bin/bash
 
-
 set -x
 
 echo "Ops role"
@@ -16,6 +15,6 @@ vault write ssh-client-signer/roles/ops-role -<<EOF
   ],
   "key_type": "ca",
   "default_user": "ops",
-  "ttl": "1m0s"
+  "ttl": "1m30s"
 }
-EOF 
+EOF
