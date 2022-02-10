@@ -1,5 +1,9 @@
 ### Common ###
 
+variable "template_path" {
+  type = string
+}
+
 variable "tfc_org" {
   type = string
 }

@@ -41,12 +41,14 @@ resource "aws_instance" "vm" {
   vpc_security_group_ids      = [aws_security_group.ssh.id]
   subnet_id                   = data.terraform_remote_state.aws_state.outputs.public_subnets_japan[0]
   associate_public_ip_address = true
-  user_data                   = data.template_file.init.rendered
+  # user_data                   = data.template_file.init.rendered
+  user_data = templatefile(var.template_path, { tpl_vault_addr = var.vault_addr, tpl_vault_namespace = var.vault_namespace })
   tags = {
     Name = "Snapshots VM client"
   }
 }
 
+/* Deprecated
 data "template_file" "init" {
   template = file("${path.module}/scripts/setup.sh")
   vars = {
@@ -54,3 +56,4 @@ data "template_file" "init" {
     tpl_vault_namespace = var.vault_namespace
   }
 }
+*/
