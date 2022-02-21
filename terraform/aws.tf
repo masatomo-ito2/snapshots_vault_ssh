@@ -42,7 +42,7 @@ resource "aws_instance" "vm" {
   subnet_id                   = data.terraform_remote_state.aws_state.outputs.public_subnets_japan[0]
   associate_public_ip_address = true
   # user_data                   = data.template_file.init.rendered
-  user_data = templatefile(var.template_path, { tpl_vault_addr = var.vault_addr, tpl_vault_namespace = var.vault_namespace })
+  user_data = templatefile("${path.module}/${var.template_path}", { tpl_vault_addr = var.vault_addr, tpl_vault_namespace = var.vault_namespace })
   tags = {
     Name = "Snapshots VM client"
   }

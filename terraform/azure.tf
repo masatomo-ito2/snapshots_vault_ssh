@@ -120,7 +120,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   computer_name = var.env
   # custom_data   = base64encode(data.template_file.azure-server-init.rendered)
-  custom_data = base64encode(templatefile(var.template_path, { tpl_vault_addr = var.vault_addr, tpl_vault_namespace = var.vault_namespace }))
+  custom_data = base64encode(templatefile("${path.module}/${var.template_path}", { tpl_vault_addr = var.vault_addr, tpl_vault_namespace = var.vault_namespace }))
 
   disable_password_authentication = true
 
