@@ -136,15 +136,13 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 }
 
-/*
-data "template_file" "azure-server-init" {
-  template = file("${path.module}/scripts/setup.sh")
-  vars = {
-    tpl_vault_addr      = var.vault_addr
-    tpl_vault_namespace = var.vault_namespace
-  }
-}
-*/
+#data "template_file" "azure-server-init" {
+#  template = file("${path.module}/scripts/setup.sh")
+#  vars = {
+#    tpl_vault_addr      = var.vault_addr
+#    tpl_vault_namespace = var.vault_namespace
+#  }
+#}
 
 # Obtain public DNS name
 

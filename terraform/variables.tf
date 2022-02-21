@@ -36,10 +36,15 @@ variable "ssh_key_name" {
   type = string
 }
 
+variable "s3_bucket" {
+  type = string
+}
+
 ###  For Azure ###
 
 # Required
 variable "tfc_azure_ws" {
   type = string
 }
+
 
